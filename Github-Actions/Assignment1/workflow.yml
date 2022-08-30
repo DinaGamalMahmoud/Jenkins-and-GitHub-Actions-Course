@@ -1,0 +1,17 @@
+name: First Workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  First-Workflow:
+    name: First Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run mvn package
+        shell: bash
+        run: |-
+          mvn clean package

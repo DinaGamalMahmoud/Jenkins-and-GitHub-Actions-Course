@@ -1,0 +1,17 @@
+name: Triggering Workflow push event
+on:
+  push:
+    branches:
+      - main
+jobs:
+  main-workflow:
+    name: main Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run mvn package
+        shell: bash
+        run: |-
+          mvn clean package

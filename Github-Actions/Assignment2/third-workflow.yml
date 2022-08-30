@@ -1,0 +1,16 @@
+name: Triggering Workflow with repository_dispatch
+on:
+  repository_dispatch:
+    types: [build]
+jobs:
+  main-workflow:
+    name: main Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run mvn package
+        shell: bash
+        run: |-
+          mvn clean package
